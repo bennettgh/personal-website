@@ -5,13 +5,12 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Sidebar from "./sidebar"
-
-import "./layout.scss"
+import React from "react";
+import PropTypes from "prop-types";
+import { useStaticQuery, graphql } from "gatsby";
+import Sidebar from "./sidebar";
+import "./layout.scss";
+import { Location } from '@reach/router';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -27,7 +26,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <div id='app'>
-        <Sidebar siteTitle={data.site.siteMetadata.title} />
+        <Location>
+          { locationProps => <Sidebar {...locationProps} siteTitle={data.site.siteMetadata.title} /> }
+        </Location>
         <main id='main'>{children}</main>
       </div>
     </>

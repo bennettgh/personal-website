@@ -15,6 +15,7 @@ body {
   font-weight: 300;
   color: #333;
   background: radial-gradient(circle at 33%, #2f323b, #1d1d25);
+  background: radial-gradient(circle at 33%, #302f3d, #1f1f26);
 }
 
 h1, h2, h3, h4, h5, h6, p, a, span {
@@ -39,7 +40,7 @@ h1, h2, h3, h4, h5, h6, p, a, span {
 #sidebar {
   display: grid;
   @include wh100;
-  background: #181818;
+  background: #18181899;
   grid-template-rows: 1fr;
 
   .nav {
@@ -73,8 +74,16 @@ h1, h2, h3, h4, h5, h6, p, a, span {
 
 #main {
   display: grid;
+  grid-template-columns: 1fr 1fr;
   @include wh100;
-  padding: 5rem;
+
+  .left {
+    padding: 5rem;
+  }
+
+  .right {
+    background: #18181811;
+  }
 }
 
 a, p {
@@ -89,3 +98,11 @@ h1 {
   letter-spacing: 0.03em;
 }
 
+
+#homeIcon {
+  stroke-dasharray:  300 , 0, 3000;
+}
+
+#homeIcon { animation: homeIcon .7s; }
+
+@keyframes homeIcon { 10% {stroke-dasharray:  300, 500, 3000} 100% { stroke-dasharray:3300, 500, 3000;} }
