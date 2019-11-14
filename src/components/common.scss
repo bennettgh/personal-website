@@ -1,0 +1,10 @@
+$primary: #fd2d52;
+
+@mixin wh100 {
+  width:100%;
+  height: 100%;
+}
+
+.color {
+  color: $primary;
+}

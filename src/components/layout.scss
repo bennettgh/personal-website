@@ -1,3 +1,5 @@
+@import 'common';
+
 * { 
   margin: 0;
   padding: 0;
@@ -23,6 +25,15 @@ h1, h2, h3, h4, h5, h6, p, a, span {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+h1, h2, h3, h4, h5, h6 {
+  font-family:  'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.03em;
+}
+
+
 #app {
   width: 100vw;
   height: 100vh;
@@ -31,9 +42,10 @@ h1, h2, h3, h4, h5, h6, p, a, span {
   grid-template-columns: 60px 1fr;
 }
 
-@mixin wh100 {
-  width:100%;
-  height: 100%;
+
+
+.color {
+  color: $primary;
 }
 
 
@@ -67,42 +79,42 @@ h1, h2, h3, h4, h5, h6, p, a, span {
     fill: #4d4d4e;
 
     &.active {
-      fill: #fd2d52;
+      fill: $primary;
     }
   }
 }
 
-#main {
+.split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   @include wh100;
-
-  .left {
-    padding: 5rem;
-  }
 
   .right {
     background: #18181811;
   }
 }
 
+
+#home {
+  > div {
+    padding-top: 31%;
+    padding-left: 6.5rem;
+  }
+  letter-spacing: 0.15em;
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  p {
+    margin-top: 1.5rem;
+    font-style: italic;
+  }
+}
+
+
+
 a, p {
-  color: #8d8d8d;
+  color: #7d7d7d;
 }
 
-h1 {
-  font-weight: 700;
-  font-family:  'Helvetica Neue', sans-serif;
-  font-size: 4rem;
-  color: #fff;
-  letter-spacing: 0.03em;
-}
-
-
-#homeIcon {
-  stroke-dasharray:  300 , 0, 3000;
-}
-
-#homeIcon { animation: homeIcon .7s; }
-
-@keyframes homeIcon { 10% {stroke-dasharray:  300, 500, 3000} 100% { stroke-dasharray:3300, 500, 3000;} }
