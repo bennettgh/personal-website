@@ -12,10 +12,10 @@ const IndexPage = () => (
       <div className='left'>
         <h1 className='home-title'>Hello,</h1>
         <h1>I'm Andrew Bennett.</h1>
-        <h1>Full Stack Developer.</h1>
+        <h1>Full Stack Web Developer.</h1>
         <p style={{lineHeight: '25px'}}>--- Currently working at: <a href='https://transparentkitchen.com'>Transparent Kitchen</a>.
           <br></br>
-          --- using 
+          --- Using 
           <span style={{color: '#2cff44'}}> Nuxt</span>
           ,
           <span style={{color: '#2cc0ff'}}> TypeScript</span>

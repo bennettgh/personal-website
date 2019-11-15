@@ -7,32 +7,65 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 import Sidebar from "./sidebar";
 import "./layout.scss";
 import { Location } from '@reach/router';
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+import Terminal from "./terminal";
+import Arrow from '../icons/arrow-up.svg';
 
-  return (
-    <>
-      <div id='app'>
-        <Location>
-          { locationProps => <Sidebar {...locationProps} siteTitle={data.site.siteMetadata.title} /> }
-        </Location>
-        <main id='main'>{children}</main>
-      </div>
-    </>
-  )
+class Layout extends React.Component  {
+  constructor(props) {
+    super(props);
+    this.state = {
+      terminalActive: false,
+    };
+  }
+
+  showTerminal = (e) => {
+    this.setState({ terminalActive: true });
+  }
+  
+  hideTerminal = () => {
+    this.setState({ terminalActive: false });
+  }
+
+  render() {
+    const { children, data } = this.props;
+    return (
+      <StaticQuery 
+        query={graphql`
+          query SiteTitleQuery {
+            site {
+              siteMetadata {
+                title
+              }
+            }
+          }
+        `}
+        render={data => (
+          <>
+            <div id='app'>
+              <Location>
+                { locationProps => <Sidebar {...locationProps} siteTitle={data.site.siteMetadata.title} /> }
+              </Location>
+              <main id='main'>{children}</main>
+              { this.state.terminalActive ?
+               <Terminal 
+                hideTerminal={this.hideTerminal}
+               /> 
+              : <Arrow 
+                  id='show-terminal'
+                  onClick={this.showTerminal}
+                /> 
+              }
+            </div>
+          </>
+        )}
+      />
+    )
+  }
 }
 
 Layout.propTypes = {
