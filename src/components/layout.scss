@@ -25,6 +25,10 @@ h1, h2, h3, h4, h5, h6, p, a, span {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  text-decoration: none;;
+}
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family:  'Helvetica Neue', sans-serif;
@@ -42,12 +46,9 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-columns: 60px 1fr;
 }
 
-
-
 .color {
   color: $primary;
 }
-
 
 #sidebar {
   display: grid;
@@ -84,6 +85,12 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.right {
+
+}
+
+
+
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -91,16 +98,38 @@ h1, h2, h3, h4, h5, h6 {
 
   .right {
     background: #18181811;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+
+    .caution-container {
+      display: grid;
+
+      .caution {
+        fill: orange;
+        margin: auto;
+        width: 80px;
+      }
+
+      p {
+        text-align: center;
+        color: #fff;
+
+        &:nth-child(3) {
+          margin-top: 0.2rem !important;
+        }
+      }
+    }
   }
 }
 
 
 #home {
-  > div {
-    padding-top: 31%;
+  > div:first-child {
+    padding-top: 27.5%;
     padding-left: 6.5rem;
   }
-  letter-spacing: 0.15em;
+  letter-spacing: 0.13em;
 
   h1 {
     font-size: 3.5rem;
@@ -108,7 +137,15 @@ h1, h2, h3, h4, h5, h6 {
 
   p {
     margin-top: 1.5rem;
-    font-style: italic;
+  }
+
+  a {
+    color: #aaa;
+    transition: 300ms;
+
+    &:hover {
+      color: #ddd;
+    }
   }
 }
 
