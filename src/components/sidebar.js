@@ -62,11 +62,11 @@ const Sidebar = ({ siteTitle, location, toggleTerminal, terminalActive }) => {
       </div>
 
       <div className='social'>
-        <a className='icon-container' href="https://www.linkedin.com/in/andrew-bennett-aa3412197/">
-          <Linkedin className='icon' />
-        </a>
         <a className='icon-container' href="https://github.com/bnaut">
-          <Github className='icon' />
+          <Github id="github" className='icon' />
+        </a>
+        <a className='icon-container' href="https://www.linkedin.com/in/andrew-bennett-aa3412197/">
+          <Linkedin id="linkedin" className='icon' />
         </a>
       </div>
     </div>

@@ -69,7 +69,7 @@ $sidebar-width: 60px;
   grid-template-rows: auto 1fr auto;
   @include wh100;
   background: #18181899;
-  padding: 1rem 0;
+  padding: 1rem 0 1.5rem 0;
 
   .top, .nav, .social {
     align-self: center;
@@ -81,6 +81,14 @@ $sidebar-width: 60px;
         cursor: pointer;
         .icon {
           fill: $primary;
+
+          &#github {
+            fill: #fff;
+          } 
+
+          &#linkedin {
+            fill: #1178b3;
+          }
         }
       }
     }
@@ -104,6 +112,7 @@ $sidebar-width: 60px;
         }
       }
       .icon {
+        font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
         color:#4d4d4e;
         &.active {
           color: #00ca0e;
