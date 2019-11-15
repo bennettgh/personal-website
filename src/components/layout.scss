@@ -69,9 +69,9 @@ $sidebar-width: 60px;
   grid-template-rows: auto 1fr auto;
   @include wh100;
   background: #18181899;
-  padding-bottom: 1rem;
+  padding: 1rem 0;
 
-  .nav, .social {
+  .top, .nav, .social {
     align-self: center;
     .icon-container {
       display: grid;
@@ -86,7 +86,34 @@ $sidebar-width: 60px;
     }
   }
 
+  .top {
+    display: grid;
+
+    .icon {
+      width: 2rem;
+    }
+
+    #logo {
+      padding: 1rem 0;
+    }
+
+    #terminal-icon {
+      &:hover {
+        .icon {
+          color: #00ca0e;
+        }
+      }
+      .icon {
+        color:#4d4d4e;
+        &.active {
+          color: #00ca0e;
+        }
+      }
+    }
+  }
+
   .nav .icon-container {
+    border:1px solidred;
     padding: 1rem 0;
     .icon {
       width: 2rem;

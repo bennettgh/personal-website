@@ -23,8 +23,8 @@ class Layout extends React.Component  {
     };
   }
 
-  showTerminal = (e) => {
-    this.setState({ terminalActive: true });
+  toggleTerminal = (e) => {
+    this.setState({ terminalActive: !this.state.terminalActive });
   }
   
   hideTerminal = () => {
@@ -48,16 +48,19 @@ class Layout extends React.Component  {
           <>
             <div id='app'>
               <Location>
-                { locationProps => <Sidebar {...locationProps} siteTitle={data.site.siteMetadata.title} /> }
+                { locationProps => 
+                  <Sidebar 
+                    {...locationProps} 
+                    siteTitle={data.site.siteMetadata.title} 
+                    toggleTerminal={this.toggleTerminal}
+                    terminalActive={this.state.terminalActive}
+                  /> 
+                }
               </Location>
               <main id='main'>{children}</main>
-              { this.state.terminalActive ?
-               <Terminal 
-                hideTerminal={this.hideTerminal}
-               /> 
-              : <Arrow 
-                  id='show-terminal'
-                  onClick={this.showTerminal}
+              { this.state.terminalActive &&
+                <Terminal 
+                  hideTerminal={this.hideTerminal}
                 /> 
               }
             </div>

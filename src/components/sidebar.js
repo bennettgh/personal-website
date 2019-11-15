@@ -10,16 +10,35 @@ import Mail from '../icons/paper-plane-1.svg';
 import Linkedin from '../icons/linkedin.svg';
 import Github from '../icons/github.svg';
 
+import Logo from '../icons/cloud.svg';
+
+
 import { Link } from "gatsby";
 
 
-const Sidebar = ({ siteTitle, location }) => {
-
+const Sidebar = ({ siteTitle, location, toggleTerminal, terminalActive }) => {
   const active = location.pathname.split('/')[1];
 
   return (
     <div id='sidebar' >
-      <div className='logo'></div>
+      <div className='top'>
+        <Link id='logo' className='icon-container' to="/">
+          <Logo className='icon'/>
+        </Link>
+        <div 
+          id='terminal-icon' 
+          className='icon-container'
+          onClick={toggleTerminal}
+        >
+          <span 
+            style={{ fontSize:'25px' }} 
+            className={`icon noselect ${terminalActive && 'active'}`}
+          >
+            >_
+          </span>
+        </div>
+      </div>
+
       <div className='nav'>
         <Link className='icon-container' to="/">
           <Home className={`icon ${active === ('') && 'active'}`}/>

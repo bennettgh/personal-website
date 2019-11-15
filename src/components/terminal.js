@@ -4,7 +4,7 @@ class Terminal extends React.Component  {
   constructor(props) {
     super(props);
     this.state = {
-      terminalPosition: { x: 100, y: 100 },
+      terminalPosition: { x: 400, y: 150 },
       pointerOffset: { x: null, y: null },
       dragging: false,
     };
