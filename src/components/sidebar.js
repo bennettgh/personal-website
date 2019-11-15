@@ -7,6 +7,9 @@ import Skills from '../icons/controls-6.svg';
 import Work from '../icons/settings-5.svg';
 import Mail from '../icons/paper-plane-1.svg';
 
+import Linkedin from '../icons/linkedin.svg';
+import Github from '../icons/github.svg';
+
 import { Link } from "gatsby";
 
 
@@ -16,26 +19,36 @@ const Sidebar = ({ siteTitle, location }) => {
 
   return (
     <div id='sidebar' >
+      <div className='logo'></div>
       <div className='nav'>
-        <Link to="/"><div className='icon-container'>
+        <Link className='icon-container' to="/">
           <Home className={`icon ${active === ('') && 'active'}`}/>
-        </div></Link>
+        </Link>
 
-        <Link to="/about/"><div className='icon-container'>
+        <Link className='icon-container' to="/about/">
           <About className={`icon ${active === 'about' && 'active'}`}/>
-        </div></Link>
+        </Link>
         
-        <Link to="/skills/"><div className='icon-container'>
+        <Link className='icon-container' to="/skills/">
           <Skills className={`icon ${active === 'skills' && 'active'}`}/>
-        </div></Link>
+        </Link>
         
-        <Link to="/work/"><div className='icon-container'>
+        <Link className='icon-container' to="/work/">
           <Work className={`icon ${active === 'work' && 'active'}`}/>
-        </div></Link>
+        </Link>
         
-        <Link to="/contact/"><div className='icon-container'>
+        <Link className='icon-container' to="/contact/">
           <Mail className={`icon ${active === 'contact' && 'active'}`}/>
-        </div></Link>
+        </Link>
+      </div>
+
+      <div className='social'>
+        <a className='icon-container' href="https://www.linkedin.com/in/andrew-bennett-aa3412197/">
+          <Linkedin className='icon' />
+        </a>
+        <a className='icon-container' href="https://github.com/bnaut">
+          <Github className='icon' />
+        </a>
       </div>
     </div>
   )

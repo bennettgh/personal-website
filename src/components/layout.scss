@@ -37,56 +37,64 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.03em;
 }
 
+.color {
+  color: $primary;
+}
+
+$sidebar-width: 60px;
 
 #app {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 60px 1fr;
-}
-
-.color {
-  color: $primary;
+  // sidebar, content
+  grid-template-columns: $sidebar-width 1fr;
 }
 
 #sidebar {
   display: grid;
+  grid-template-rows: auto 1fr auto;
   @include wh100;
   background: #18181899;
-  grid-template-rows: 1fr;
+  padding-bottom: 1rem;
 
-  .nav {
-    display: grid;
-    width: 100%;
+  .nav, .social {
     align-self: center;
-    justify-content: center;
-  }
-
-  .icon-container {
-    display: grid;
-    // change height via padding
-    padding: 1rem 1.2rem; 
-    justify-content: center;
-    align-items: center;
-
-    &:hover {
-      cursor: pointer;
+    .icon-container {
+      display: grid;
+      width: $sidebar-width;
+      justify-content: center;
+      &:hover {
+        cursor: pointer;
+        .icon {
+          fill: $primary;
+        }
+      }
     }
   }
- 
+
+  .nav .icon-container {
+    padding: 1rem 0;
+    .icon {
+      width: 2rem;
+    }
+  }
+
+  .social .icon-container {
+    padding: 0.75rem 0;
+    .icon {
+      width: 1rem;
+    }
+  }
+  
   .icon {
-    width: 25px;
     fill: #4d4d4e;
 
     &.active {
       fill: $primary;
     }
   }
-}
-
-.right {
-
 }
 
 
@@ -113,7 +121,6 @@ h1, h2, h3, h4, h5, h6 {
 
       p {
         text-align: center;
-        color: #fff;
 
         &:nth-child(3) {
           margin-top: 0.2rem !important;
@@ -140,12 +147,9 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   a {
-    color: #aaa;
+    color: $primary;
     transition: 300ms;
 
-    &:hover {
-      color: #ddd;
-    }
   }
 }
 
